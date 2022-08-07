@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  node:
+    build:
+      context: .
+      args:
+      
+        GIT_USER_NAME: labscript
+        GIT_USER_EMAIL: labscript@proton.me
+
+    ports:
+      - "3000:3000"
+    container_name: nestjs-ualmtorres
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../:/home/node/app
+      - ~/.gitignore:/root/.gitignore
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa
+      - ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
